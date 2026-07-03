@@ -1,0 +1,95 @@
+{
+  "theme": "Light",
+  "archetype": "4 (Swiss & High-Contrast / Corporate B2B)",
+  "vibe": "Professional, Corporate, Persuasive, Global, Trustworthy",
+  "colors": {
+    "primary": "#0f172a",
+    "primary_foreground": "#ffffff",
+    "secondary": "#0e263d",
+    "accent_copper": "#c2410c",
+    "accent_emerald": "#059669",
+    "background": "#f8fafc",
+    "surface": "#ffffff",
+    "border": "#e2e8f0",
+    "text_main": "#1e293b",
+    "text_muted": "#64748b"
+  },
+  "typography": {
+    "heading_font": "Outfit, sans-serif",
+    "body_font": "Plus Jakarta Sans, sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-6xl tracking-tight font-bold",
+      "h2": "text-3xl md:text-4xl tracking-tight font-bold",
+      "h3": "text-xl md:text-2xl font-semibold",
+      "body": "text-base leading-relaxed",
+      "small": "text-sm tracking-wide"
+    }
+  },
+  "spacing_and_layout": {
+    "container_padding": "px-6 md:px-12 lg:px-24",
+    "section_spacing": "py-20 md:py-32",
+    "grid_gap": "gap-8 md:gap-12"
+  },
+  "components": {
+    "navigation": {
+      "style": "Sticky, glassmorphism (backdrop-blur-xl bg-white/80), 1px subtle bottom border.",
+      "features": ["Logo", "Multi-language toggle (EN/HI)", "Download Brochure Button (Warm Copper)"]
+    },
+    "hero": {
+      "layout": "Full viewport height (min-h-[80vh]), centered content",
+      "background": "Image with bg-black/50 overlay",
+      "cta": "Primary button in Warm Copper, Secondary button outlined in White"
+    },
+    "products_grid": {
+      "layout": "grid-cols-1 md:grid-cols-2 lg:grid-cols-4 or 5",
+      "card_style": "Flat surface, subtle shadow (shadow-sm), hover:-translate-y-1 hover:shadow-lg transition-all. Image aspect ratio 4:3 with object-cover."
+    },
+    "why_choose_us": {
+      "layout": "Bento grid or 3-column layout",
+      "icon_style": "Phosphor icons, size 32px, colored in Emerald Green or Warm Copper"
+    },
+    "contact_form": {
+      "layout": "Split layout: Contact info on left, form on right. Surface white with 1px border-border.",
+      "inputs": "Shadcn UI inputs. Focus state: ring-2 ring-accent_copper."
+    },
+    "floating_whatsapp": {
+      "position": "fixed bottom-6 right-6 z-50",
+      "style": "bg-[#25D366] text-white rounded-full p-4 shadow-lg hover:scale-110 transition-transform"
+    }
+  },
+  "media": {
+    "hero": {
+      "url": "https://images.pexels.com/photos/35458829/pexels-photo-35458829.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Cargo ships at sunset"
+    },
+    "about_us": {
+      "url": "https://images.pexels.com/photos/4487383/pexels-photo-4487383.jpeg",
+      "alt": "Warehouse global logistics"
+    },
+    "handshake": {
+      "url": "https://images.pexels.com/photos/33175650/pexels-photo-33175650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "alt": "Professional business handshake"
+    },
+    "products": {
+      "engineering_goods": "https://images.pexels.com/photos/11157438/pexels-photo-11157438.jpeg",
+      "chemicals": "https://images.unsplash.com/photo-1532094349884-543bc11b234d",
+      "garments": "https://images.unsplash.com/photo-1768746350424-ee28a364dcf5",
+      "plastic_products": "https://images.pexels.com/photos/18631424/pexels-photo-18631424.jpeg",
+      "indian_handicrafts": "https://images.unsplash.com/photo-1765446568880-23ef9d4f6b12",
+      "ayurvedic": "https://images.unsplash.com/photo-1734607404574-df50e1839d6d?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwxfHxheXVydmVkaWMlMjBtZWRpY2luZSUyMG5hdHVyYWwlMjBoZXJiYWx8ZW58MHx8fHwxNzgyMDIyMjA3fDA&ixlib=rb-4.1.0&q=85",
+      "agricultural": "https://images.pexels.com/photos/29465456/pexels-photo-29465456.jpeg",
+      "industrial_valves": "https://images.pexels.com/photos/5711732/pexels-photo-5711732.jpeg",
+      "biodegradable": "https://images.unsplash.com/photo-1605615923013-f26c14fe7155?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwyfHxlY28lMjBmcmllbmRseSUyMGJpb2RlZ3JhZGFibGUlMjBwYWNrYWdpbmd8ZW58MHx8fHwxNzgyNjE5MzU1fDA&ixlib=rb-4.1.0&q=85",
+      "ev_vehicles": "https://images.unsplash.com/photo-1702440976396-5d8ede3aaf8b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA3MDR8MHwxfHNlYXJjaHwxfHxlbGVjdHJpYyUyMHJpY2tzaGF3JTIwMyUyMHdoZWVsZXJ8ZW58MHx8fHwxNzgyNzk3Mzk3fDA&ixlib=rb-4.1.0&q=85"
+    }
+  },
+  "instructions_to_main_agent": [
+    "Install and use @phosphor-icons/react or lucide-react for icons.",
+    "Use framer-motion for subtle entrance animations (fade up on scroll).",
+    "Ensure the contact form uses Shadcn components and has a layout ready for MongoDB/Resend integration.",
+    "Implement a language toggle (visual only, or state-based) in the header for English/Hindi.",
+    "Include a 'Download Brochure' button in the navigation or hero section.",
+    "Add 'data-testid' to all interactive elements (buttons, form inputs, toggles).",
+    "Use pure Tailwind/HTML for the marketing layout, avoiding rigid Shadcn containers for full-width sections."
+  ]
+}
