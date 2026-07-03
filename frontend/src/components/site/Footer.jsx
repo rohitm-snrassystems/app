@@ -20,12 +20,14 @@ const Footer = () => {
             </div>
           </div>
           <p className="mt-5 text-white/70 max-w-md leading-relaxed">{t.footer.tagline}</p>
-          <div className="mt-6 flex items-center gap-3">
-            <SocialIcon href={COMPANY.social.linkedin} label="LinkedIn" Icon={Linkedin} testid="social-linkedin" />
-            <SocialIcon href={COMPANY.social.twitter} label="Twitter / X" Icon={Twitter} testid="social-twitter" />
-            <SocialIcon href={COMPANY.social.facebook} label="Facebook" Icon={Facebook} testid="social-facebook" />
-            <SocialIcon href={COMPANY.social.instagram} label="Instagram" Icon={Instagram} testid="social-instagram" />
-          </div>
+          {(COMPANY.social.linkedin || COMPANY.social.twitter || COMPANY.social.facebook || COMPANY.social.instagram) && (
+            <div className="mt-6 flex items-center gap-3">
+              {COMPANY.social.linkedin && <SocialIcon href={COMPANY.social.linkedin} label="LinkedIn" Icon={Linkedin} testid="social-linkedin" />}
+              {COMPANY.social.twitter && <SocialIcon href={COMPANY.social.twitter} label="Twitter / X" Icon={Twitter} testid="social-twitter" />}
+              {COMPANY.social.facebook && <SocialIcon href={COMPANY.social.facebook} label="Facebook" Icon={Facebook} testid="social-facebook" />}
+              {COMPANY.social.instagram && <SocialIcon href={COMPANY.social.instagram} label="Instagram" Icon={Instagram} testid="social-instagram" />}
+            </div>
+          )}
         </div>
 
         <div>

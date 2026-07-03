@@ -24,9 +24,9 @@ const About = () => {
             className="w-full h-[420px] md:h-[540px] object-cover rounded-sm shadow-2xl"
           />
           <div className="absolute -bottom-6 -right-6 hidden md:block bg-navy text-white p-6 max-w-[240px] shadow-2xl">
-            <div className="text-copper text-xs tracking-[0.2em] font-semibold">SINCE 2015</div>
-            <div className="font-display font-bold text-3xl mt-1">10 YRS</div>
-            <div className="text-xs text-white/70 mt-1">of consistent global exports</div>
+            <div className="text-copper text-xs tracking-[0.2em] font-semibold">EST. 2025</div>
+            <div className="font-display font-bold text-3xl mt-1">NEW-GEN</div>
+            <div className="text-xs text-white/70 mt-1">export house, built for global trade</div>
           </div>
         </motion.div>
 
@@ -57,21 +57,8 @@ const About = () => {
         </motion.div>
       </div>
 
-      <div className="container-x mx-auto max-w-7xl mt-20">
-        <div className="text-center text-xs tracking-[0.28em] font-semibold text-slate-400 uppercase mb-6">
-          Trusted by importers worldwide
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4">
-          {CLIENT_LOGOS.map((c, i) => (
-            <div
-              key={c}
-              data-testid={`client-logo-${i}`}
-              className="font-display font-bold text-slate-400 hover:text-navy transition-colors text-sm md:text-base tracking-wide"
-            >
-              {c}
-            </div>
-          ))}
-        </div>
+      <div className="container-x mx-auto max-w-7xl mt-20 hidden">
+        {/* Client logos hidden — waiting on real launch partners */}
       </div>
     </section>
   );
