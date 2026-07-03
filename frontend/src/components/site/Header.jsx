@@ -56,17 +56,13 @@ const Header = () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         >
-          <div className="w-9 h-9 rounded-md bg-navy flex items-center justify-center text-white font-display font-bold">
-            C
-          </div>
-          <div className="leading-tight">
-            <div className={`font-display font-bold text-[15px] ${scrolled ? "text-navy" : "text-white"}`}>
-              COMMERCION
-            </div>
-            <div className={`text-[10px] tracking-[0.24em] font-semibold ${scrolled ? "text-copper" : "text-copper"}`}>
-              EXIM
-            </div>
-          </div>
+          <img
+            src="/logo.jpg"
+            alt="Commercion Exim Pvt Ltd"
+            className={`transition-all duration-300 object-contain rounded-md ${
+              scrolled ? "h-9 md:h-10" : "h-11 md:h-12"
+            }`}
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-8">

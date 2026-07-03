@@ -11,13 +11,11 @@ const Footer = () => {
       <div className="container-x mx-auto max-w-7xl py-16 md:py-20 grid md:grid-cols-4 gap-10">
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-md bg-copper flex items-center justify-center text-white font-display font-bold">
-              C
-            </div>
-            <div className="leading-tight">
-              <div className="font-display font-bold text-lg">COMMERCION</div>
-              <div className="text-[10px] tracking-[0.28em] font-semibold text-copper">EXIM PVT LTD</div>
-            </div>
+            <img
+              src="/logo.jpg"
+              alt="Commercion Exim Pvt Ltd"
+              className="h-11 md:h-12 object-contain rounded-md"
+            />
           </div>
           <p className="mt-5 text-white/70 max-w-md leading-relaxed">{t.footer.tagline}</p>
           {(COMPANY.social.linkedin || COMPANY.social.twitter || COMPANY.social.facebook || COMPANY.social.instagram) && (
