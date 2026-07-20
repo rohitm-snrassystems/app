@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useLang } from "@/context/LanguageContext";
 import { PRODUCT_CATEGORIES } from "@/data/site";
 import { ArrowUpRight } from "lucide-react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 
 const Products = () => {
   const { lang, t } = useLang();
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const goto = () => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
 
   return (
@@ -52,7 +62,14 @@ const Products = () => {
                 </h3>
                 <p className="text-slate-500 text-sm mt-1">{p[lang].sub}</p>
                 {p[lang].desc && (
-                  <p className="text-slate-500 text-xs mt-2 leading-relaxed">{p[lang].desc}</p>
+                  <button
+                    type="button"
+                    data-testid={`product-view-more-${p.key}`}
+                    onClick={() => setSelectedProduct(p)}
+                    className="mt-3 text-sm font-semibold text-navy underline decoration-copper decoration-2 underline-offset-4 hover:text-copper transition"
+                  >
+                    View More
+                  </button>
                 )}
                 <button
                   data-testid={`product-quote-${p.key}`}
@@ -65,6 +82,26 @@ const Products = () => {
             </motion.div>
           ))}
         </div>
+
+        <Dialog open={Boolean(selectedProduct)} onOpenChange={(open) => !open && setSelectedProduct(null)}>
+          {selectedProduct && (
+            <DialogContent className="max-w-2xl border-slate-200 bg-white">
+              <DialogHeader className="pr-8 text-left">
+                <DialogTitle className="font-display text-2xl text-navy">
+                  {selectedProduct[lang].title}
+                </DialogTitle>
+                <DialogDescription className="pt-3 text-base leading-relaxed text-slate-600">
+                  {selectedProduct[lang].desc}
+                </DialogDescription>
+              </DialogHeader>
+              <DialogFooter>
+                <DialogClose className="inline-flex items-center justify-center rounded-md bg-navy px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800">
+                  Close
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          )}
+        </Dialog>
       </div>
     </section>
   );

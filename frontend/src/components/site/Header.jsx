@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useLang } from "@/context/LanguageContext";
 import { COMPANY } from "@/data/site";
 import { Menu, X, Download, Globe2 } from "lucide-react";
-import { toast } from "sonner";
 
 const Header = () => {
   const { lang, setLang, t } = useLang();
@@ -24,12 +23,6 @@ const Header = () => {
     { href: "#contact", label: t.nav.contact, testid: "nav-contact" },
   ];
 
-  const handleBrochure = (e) => {
-    e.preventDefault();
-    toast.info("Brochure link will be available soon. Meanwhile, please request a quote.", {
-      duration: 4000,
-    });
-  };
 
   const goto = (href) => {
     setOpen(false);
@@ -116,9 +109,10 @@ const Header = () => {
           </div>
 
           <a
-            href="#brochure"
+            href="/brochure.jpeg"
+            target="_blank"
+            rel="noopener noreferrer"
             data-testid="btn-brochure"
-            onClick={handleBrochure}
             className="hidden md:inline-flex items-center gap-2 rounded-full bg-copper hover:bg-orange-800 text-white px-4 py-2 text-xs font-semibold transition"
           >
             <Download size={14} /> {t.nav.brochure}
@@ -168,8 +162,10 @@ const Header = () => {
                 HI
               </button>
               <a
-                href="#brochure"
-                onClick={handleBrochure}
+                href="/brochure.jpeg"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
                 data-testid="m-btn-brochure"
                 className="ml-auto inline-flex items-center gap-2 rounded-full bg-copper text-white px-4 py-2 text-xs font-semibold"
               >
