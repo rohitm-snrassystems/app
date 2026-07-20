@@ -49,7 +49,7 @@ const Products = () => {
                   src={p.img}
                   alt={p.en.title}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  className="w-full h-full object-contain bg-slate-100 group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                 <div className="absolute top-3 left-3 chip !text-navy !bg-white/95 shadow-sm">
