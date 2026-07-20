@@ -57,7 +57,7 @@ const Header = () => {
           }}
         >
           <img
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Commercion Exim Pvt Ltd"
             className={`transition-all duration-300 object-contain rounded-md ${
               scrolled ? "h-9 md:h-10" : "h-11 md:h-12"

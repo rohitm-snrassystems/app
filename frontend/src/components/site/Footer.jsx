@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="md:col-span-2">
           <div className="flex items-center gap-2">
             <img
-              src="/logo.jpg"
+              src="/logo.png"
               alt="Commercion Exim Pvt Ltd"
               className="h-11 md:h-12 object-contain rounded-md"
             />

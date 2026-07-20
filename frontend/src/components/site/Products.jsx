@@ -51,6 +51,9 @@ const Products = () => {
                   {p[lang].title}
                 </h3>
                 <p className="text-slate-500 text-sm mt-1">{p[lang].sub}</p>
+                {p[lang].desc && (
+                  <p className="text-slate-500 text-xs mt-2 leading-relaxed">{p[lang].desc}</p>
+                )}
                 <button
                   data-testid={`product-quote-${p.key}`}
                   onClick={goto}

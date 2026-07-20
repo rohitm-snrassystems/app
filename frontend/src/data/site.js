@@ -1,10 +1,18 @@
 export const PRODUCT_CATEGORIES = [
   {
-    id: "engineering_goods",
-    key: "engineering",
-    en: { title: "Engineering Goods", sub: "Auto Components · Industrial Machinery" },
-    hi: { title: "इंजीनियरिंग गुड्स", sub: "ऑटो पार्ट्स · औद्योगिक मशीनरी" },
-    img: "https://images.pexels.com/photos/11157438/pexels-photo-11157438.jpeg",
+    id: "healthy_indian_namkeen",
+    key: "namkeen",
+    en: {
+      title: "Healthy Indian Namkeen",
+      sub: "Export Quality · Natural Ingredients",
+      desc: "Discover a premium range of Indian Namkeen snacks that redefine healthy indulgence. Our products are prepared using high-quality natural ingredients, trans-fat-free oils, and time-tested traditional recipes — offering a snacking experience that is as nutritious as it is flavorful. Manufactured in certified facilities with strict hygiene standards, our Namkeen is trusted by importers and distributors across the globe for its consistent quality, authentic taste, and health-conscious formulation.",
+    },
+    hi: {
+      title: "हेल्दी इंडियन नमकीन",
+      sub: "निर्यात गुणवत्ता · प्राकृतिक सामग्री",
+      desc: "भारतीय नमकीन स्नैक्स की प्रीमियम रेंज, जो स्वस्थ स्वाद की नई परिभाषा है। हमारे उत्पाद उच्च गुणवत्ता वाली प्राकृतिक सामग्री, ट्रांस-फैट-मुक्त तेलों और पारंपरिक विधियों से तैयार किए जाते हैं। प्रमाणित इकाइयों में कड़े स्वच्छता मानकों के साथ निर्मित हमारी नमकीन अपनी निरंतर गुणवत्ता, प्रामाणिक स्वाद और स्वास्थ्य-अनुकूल संरचना के लिए विश्व भर के आयातकों की पसंद है।",
+    },
+    img: "/product_one.jpeg",
   },
   {
     id: "chemicals",
@@ -49,11 +57,11 @@ export const PRODUCT_CATEGORIES = [
     img: "https://images.pexels.com/photos/29465456/pexels-photo-29465456.jpeg",
   },
   {
-    id: "industrial_valves",
-    key: "valves",
-    en: { title: "Industrial Valves", sub: "Gate · Ball · Butterfly" },
-    hi: { title: "औद्योगिक वाल्व", sub: "गेट · बॉल · बटरफ्लाई" },
-    img: "https://images.pexels.com/photos/5711732/pexels-photo-5711732.jpeg",
+    id: "engineering_goods",
+    key: "engineering",
+    en: { title: "Engineering Goods", sub: "Auto Components · Industrial Machinery" },
+    hi: { title: "इंजीनियरिंग गुड्स", sub: "ऑटो पार्ट्स · औद्योगिक मशीनरी" },
+    img: "https://images.pexels.com/photos/11157438/pexels-photo-11157438.jpeg",
   },
   {
     id: "biodegradable",
