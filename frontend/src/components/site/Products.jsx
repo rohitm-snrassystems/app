@@ -49,7 +49,7 @@ const Products = () => {
                   src={p.img}
                   alt={p.en.title}
                   loading="lazy"
-                  className="w-full h-full object-contain bg-slate-100 group-hover:scale-105 transition-transform duration-500"
+                  className={`w-full h-full ${p.imgContain ? "object-fill" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
                 <div className="absolute top-3 left-3 chip !text-navy !bg-white/95 shadow-sm">
@@ -62,14 +62,26 @@ const Products = () => {
                 </h3>
                 <p className="text-slate-500 text-sm mt-1">{p[lang].sub}</p>
                 {p[lang].desc && (
-                  <button
-                    type="button"
-                    data-testid={`product-view-more-${p.key}`}
-                    onClick={() => setSelectedProduct(p)}
-                    className="mt-3 text-sm font-semibold text-navy underline decoration-copper decoration-2 underline-offset-4 hover:text-copper transition"
-                  >
-                    View More
-                  </button>
+                  p[lang].link ? (
+                    <a
+                      href={p[lang].link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-testid={`product-view-more-${p.key}`}
+                      className="mt-3 inline-block text-sm font-semibold text-navy underline decoration-copper decoration-2 underline-offset-4 hover:text-copper transition"
+                    >
+                      View More
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      data-testid={`product-view-more-${p.key}`}
+                      onClick={() => setSelectedProduct(p)}
+                      className="mt-3 text-sm font-semibold text-navy underline decoration-copper decoration-2 underline-offset-4 hover:text-copper transition"
+                    >
+                      View More
+                    </button>
+                  )
                 )}
                 <button
                   data-testid={`product-quote-${p.key}`}

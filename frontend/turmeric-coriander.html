@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bengal &amp; Indian Heritage Spices — Interactive Trade &amp; Origin Experience</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0D1117;
+    --bg-card: #161B26;
+    --bg-card-hover: #1F2636;
+    --indigo-deep: #121824;
+    
+    --terracotta: #D95D39;
+    --marigold: #F4A261;
+    --marigold-gold: #E9C46A;
+    --cardamom-green: #2A9D8F;
+    --cardamom-dark: #1E4D40;
+    --brass-gold: #D4AF37;
+    --brass-glow: rgba(212, 175, 55, 0.25);
+    
+    --text-primary: #F8F9FA;
+    --text-secondary: #C5CBD3;
+    --text-muted: #8B95A5;
+    
+    --line: rgba(212, 175, 55, 0.18);
+    --line-subtle: rgba(255, 255, 255, 0.08);
+    --shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+    --glow: 0 0 25px rgba(244, 162, 97, 0.15);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg-dark);
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    background-image: 
+      radial-gradient(circle at 20% 20%, rgba(217, 93, 57, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 80% 60%, rgba(42, 157, 143, 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(244, 162, 97, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Cinzel', serif;
+    margin: 0 0 0.4em 0;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .bengali-text {
+    font-family: 'Hind Siliguri', sans-serif;
+  }
+
+  .mono {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ---------- Header / Nav ---------- */
+  header.site {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13, 17, 23, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    gap: 16px;
+  }
+
+  .brand {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--marigold);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .brand .dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--terracotta);
+    box-shadow: 0 0 10px var(--terracotta);
+    display: inline-block;
+  }
+
+  .brand span.sub-title {
+    font-family: 'Hind Siliguri', sans-serif;
+    font-size: 12.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+    border-left: 1px solid var(--line-subtle);
+    padding-left: 10px;
+  }
+
+  nav.links {
+    display: flex;
+    gap: 14px;
+    font-size: 12.5px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  nav.links a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+  }
+
+  nav.links a:hover {
+    color: var(--marigold);
+    border-color: var(--terracotta);
+  }
+
+  /* ---------- Hero Section ---------- */
+  .hero {
+    position: relative;
+    padding: 120px 0 90px;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(18, 24, 36, 0.8) 0%, var(--bg-dark) 100%);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('/indian-spices.jpeg') center / cover no-repeat;
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 17, 23, 0.55) 0%, rgba(13, 17, 23, 0.85) 100%);
+    z-index: 0;
+  }
+
+  .hero .wrap {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 50px;
+    align-items: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--marigold-gold);
+    border: 1px solid var(--line);
+    padding: 6px 16px;
+    border-radius: 30px;
+    background: rgba(244, 162, 97, 0.08);
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 5.5vw, 68px);
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .hero h1 span.accent {
+    color: var(--marigold);
+    font-style: italic;
+  }
+
+  .hero p.sub {
+    font-size: 17px;
+    color: var(--text-secondary);
+    margin-top: 20px;
+    max-width: 54ch;
+  }
+
+  .hero-badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+  }
+
+  .hero-badge {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hero-badge .icon { color: var(--terracotta); }
+
+  .hero-image-wrap {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+
+  .hero-image-wrap img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.1) contrast(1.05);
+  }
+
+  .hero-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(13, 17, 23, 0.85) 0%, transparent 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+  }
+
+  .hero-image-overlay div {
+    border-left: 3px solid var(--marigold);
+    padding-left: 16px;
+  }
+
+  .hero-image-overlay h4 {
+    font-size: 18px;
+    margin: 0;
+    color: var(--text-primary);
+  }
+
+  .hero-image-overlay p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 4px 0 0;
+  }
+
+  /* ---------- Section Shells ---------- */
+  section {
+    padding: 90px 0;
+    border-bottom: 1px solid var(--line-subtle);
+  }
+
+  section.alt {
+    background: var(--indigo-deep);
+  }
+
+  .section-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 60px;
+  }
+
+  .section-head .eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--marigold);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .section-head h2 {
+    font-size: clamp(28px, 3.8vw, 44px);
+    color: var(--text-primary);
+  }
+
+  .section-head p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-top: 14px;
+  }
+
+  /* ---------- 1. SPICE ROUTE MAP (INTERACTIVE) ---------- */
+  .spice-map-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+
+  .map-regions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .region-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--line-subtle);
+    border-radius: 8px;
+    padding: 20px 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .region-card:hover, .region-card.active {
+    border-color: var(--marigold);
+    background: var(--bg-card-hover);
+    transform: translateX(6px);
+  }
+
+  .region-card.active {
+    border-left: 4px solid var(--terracotta);
+  }
+
+  .region-info h4 {
+    font-size: 17px;
+    margin: 0 0 4px;
+    color: var(--text-primary);
+  }
+
+  .region-info p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  .gi-badge {
+    background: rgba(217, 93, 57, 0.15);
+    color: var(--terracotta);
+    border: 1px solid var(--terracotta);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  .map-display {
+    background: var(--bg-dark);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .map-display h3 {
+    color: var(--marigold);
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .map-display .origin-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--cardamom-green);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .map-display p.desc {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .map-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line-subtle);
+  }
+
+  .stat-box span.num {
+    font-family: 'Cinzel', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--marigold-gold);
+    display: block;
+  }
+
+  .stat-box span.lbl {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ---------- 2. HARVEST TO HOME TIMELINE ---------- */
+  .timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+  }
+
+  .timeline-step {
+    background: var(--bg-card);
+    border: 1px solid var(--line-subtle);
+    border-top: 3px solid var(--cardamom-green);
+    border-radius: 8px;
+    padding: 24px 18px;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+
+  .timeline-step:hover {
+    transform: translateY(-6px);
+    border-top-color: var(--marigold);
+  }
+
+  .timeline-step .step-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    color: var(--cardamom-green);
+    font-weight: 700;
+  }
+
+  .timeline-step h4 {
+    font-size: 16px;
+    margin: 10px 0 8px;
+    color: var(--text-primary);
+  }
+
+  .timeline-step p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* ---------- 3. AYURVEDIC HEALTH TABS ---------- */
+  .ayurveda-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .tab-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--line-subtle);
+    color: var(--text-secondary);
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tab-btn:hover, .tab-btn.active {
+    background: var(--terracotta);
+    color: #FFF;
+    border-color: var(--terracotta);
+    box-shadow: 0 4px 15px rgba(217, 93, 57, 0.3);
+  }
+
+  .tab-content {
+    display: none;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+
+  .tab-content.active {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .ayur-info h3 {
+    color: var(--marigold);
+    font-size: 26px;
+    margin-bottom: 12px;
+  }
+
+  .ayur-dosha-badges {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .dosha-tag {
+    background: rgba(42, 157, 143, 0.15);
+    color: var(--cardamom-green);
+    border: 1px solid var(--cardamom-green);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+
+  .ayur-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ayur-benefits-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--line-subtle);
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .ayur-benefits-list li::before {
+    content: "✦";
+    color: var(--marigold);
+  }
+
+  /* ---------- 4. FLAVOR PROFILE METERS ---------- */
+  .meters-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+
+  .meter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line-subtle);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: var(--card-shadow);
+  }
+
+  .meter-card h3 {
+    color: var(--marigold);
+    font-size: 22px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .meter-row {
+    margin-bottom: 18px;
+  }
+
+  .meter-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+
+  .meter-bar-bg {
+    height: 8px;
+    background: var(--bg-dark);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .meter-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--marigold) 0%, var(--terracotta) 100%);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+  }
+
+  /* ---------- 5. PANTRY RECIPE FINDER ---------- */
+  .pantry-container {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+  }
+
+  .pantry-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 36px;
+    justify-content: center;
+  }
+
+  .pantry-chip {
+    background: var(--bg-dark);
+    border: 1px solid var(--line-subtle);
+    color: var(--text-secondary);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.25s ease;
+  }
+
+  .pantry-chip.selected {
+    background: var(--cardamom-green);
+    color: #FFF;
+    border-color: var(--cardamom-green);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+  }
+
+  .recipe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .recipe-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--line-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .recipe-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--marigold);
+  }
+
+  .recipe-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .recipe-card-body {
+    padding: 20px;
+  }
+
+  .recipe-card-body h4 {
+    font-size: 18px;
+    margin: 0 0 8px;
+    color: var(--text-primary);
+  }
+
+  .recipe-card-body p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+  }
+
+  .recipe-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .recipe-tag {
+    font-size: 11px;
+    background: rgba(244, 162, 97, 0.1);
+    color: var(--marigold);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  /* ---------- 6. VIRTUAL MASALA DABBA BUILDER ---------- */
+  .dabba-builder {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+    background: var(--bg-card);
+    border: 1px solid var(--brass-gold);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 0 35px var(--brass-glow);
+  }
+
+  .brass-dabba-visual {
+    position: relative;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #5C4312 0%, #2A1E07 70%, #150F03 100%);
+    border: 10px solid var(--brass-gold);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.6);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-content: center;
+    justify-items: center;
+    padding: 30px;
+    gap: 12px;
+  }
+
+  .dabba-slot {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #1A1305;
+    border: 2px dashed var(--brass-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 10px;
+    color: var(--brass-gold);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 6px;
+  }
+
+  .dabba-slot.filled {
+    border-style: solid;
+    background: var(--terracotta);
+    color: #FFF;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    font-weight: 600;
+  }
+
+  .dabba-options-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+
+  }
+
+  .dabba-option-item {
+    background: var(--bg-dark);
+    border: 1px solid var(--line-subtle);
+    padding: 12px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+  }
+
+  .dabba-option-item:hover, .dabba-option-item.selected {
+    border-color: var(--brass-gold);
+    background: var(--bg-card-hover);
+  }
+
+  .dabba-option-item.selected {
+    color: var(--brass-gold);
+    font-weight: 600;
+  }
+
+  .btn-dabba-action {
+    margin-top: 24px;
+    background: linear-gradient(135deg, var(--brass-gold) 0%, #B8860B 100%);
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    transition: transform 0.2s ease;
+  }
+
+  .btn-dabba-action:hover {
+    transform: scale(1.02);
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    background: #080B10;
+    color: var(--text-muted);
+    padding: 70px 0 40px;
+    border-top: 1px solid var(--line);
+  }
+
+  footer h3 { color: var(--marigold); font-size: 24px; }
+
+  .foot-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+  }
+
+  footer a { text-decoration: none; color: var(--text-secondary); transition: color 0.2s ease; }
+  footer a:hover { color: var(--marigold); }
+
+  footer .col h5 {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--marigold);
+    margin-bottom: 16px;
+  }
+
+  footer .col p, footer .col li {
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  footer .col ul { list-style: none; padding: 0; margin: 0; }
+
+  footer .credits-line {
+    border-top: 1px solid var(--line-subtle);
+    padding-top: 26px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 960px) {
+    nav.links { display: none; }
+    .hero-grid, .spice-map-container, .tab-content.active, .meters-grid, .dabba-builder {
+      grid-template-columns: 1fr;
+    }
+    .timeline { grid-template-columns: 1fr 1fr; }
+    .recipe-grid { grid-template-columns: 1fr 1fr; }
+    .foot-grid { grid-template-columns: 1fr; gap: 34px; }
+  }
+
+  @media (max-width: 580px) {
+    .timeline { grid-template-columns: 1fr; }
+    .recipe-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="nav">
+    <div class="brand">
+      <span class="dot"></span> 
+      Bengal Spice Ledger
+      <span class="sub-title">ভারতীয় মশলা ঐতিহ্য</span>
+    </div>
+    <nav class="links">
+      <a href="#spice-route">GI Route Map</a>
+      <a href="#processing">Cold-Ground</a>
+      <a href="#ayurveda">Ayurveda</a>
+      <a href="#flavor-meters">Flavor Profile</a>
+      <a href="#pantry-finder">Recipe Finder</a>
+      <a href="#masala-dabba">Masala Dabba</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ HERO SECTION ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">✦ Heritage · Purity · Geographical Indications</div>
+        <h1>
+          Preserving the <span class="accent">Volatile Essence</span> of Indian Spices
+        </h1>
+        <p class="sub">
+          From Paschim Medinipur Turmeric to Lakadong Haldi and Nadia Dhane — cold-ground and stone-pounded at low temperatures to lock in volatile oils, natural color, and Ayurvedic potency.
+        </p>
+        <div class="hero-badge-group">
+          <div class="hero-badge"><span class="icon">✓</span> GI Tagged Origins</div>
+          <div class="hero-badge"><span class="icon">✓</span> Cold-Ground &lt;35°C</div>
+          <div class="hero-badge"><span class="icon">✓</span> Zero Additives</div>
+          <div class="hero-badge"><span class="icon">✓</span> High Curcumin &amp; Linalool</div>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <img src="https://images.unsplash.com/photo-1775433205046-86e060feff06?auto=format&fit=crop&w=1200&q=80" alt="Vibrant Indian heritage spices">
+        <div class="hero-image-overlay">
+          <div>
+            <h4>Alluvial Soil Harvest 2026</h4>
+            <p>Direct from Gangetic &amp; Eastern Regional Farming Collectives</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 1. SPICE ROUTE MAP & TRACEABILITY ============ -->
+<section id="spice-route">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Geographical Traceability</span>
+      <h2>Interactive Spice Route of India</h2>
+      <p>Discover the distinct soil, climate, and GI-tagged origins that make each spice variety unique.</p>
+    </div>
+
+    <div class="spice-map-container">
+      <div class="map-regions-list">
+        <div class="region-card active" onclick="showRegion('wb')">
+          <div class="region-info">
+            <h4>Paschim Medinipur &amp; Nadia</h4>
+            <p>West Bengal · Alluvial Gangetic Belt</p>
+          </div>
+          <span class="gi-badge">GI Region</span>
+        </div>
+        <div class="region-card" onclick="showRegion('meghalaya')">
+          <div class="region-info">
+            <h4>Lakadong, Jaintia Hills</h4>
+            <p>Meghalaya · High Altitude Organic Soil</p>
+          </div>
+          <span class="gi-badge">GI Certified</span>
+        </div>
+        <div class="region-card" onclick="showRegion('karnataka')">
+          <div class="region-info">
+            <h4>Byadgi, Haveri</h4>
+            <p>Karnataka · Deep Crimson Soil</p>
+          </div>
+          <span class="gi-badge">GI Tagged</span>
+        </div>
+        <div class="region-card" onclick="showRegion('kerala')">
+          <div class="region-info">
+            <h4>Tellicherry, Malabar Coast</h4>
+            <p>Kerala · Tropical Rainforest Slopes</p>
+          </div>
+          <span class="gi-badge">GI Origin</span>
+        </div>
+      </div>
+
+      <div class="map-display" id="map-display-box">
+        <h3 id="map-title">Paschim Medinipur &amp; Nadia Turmeric/Coriander</h3>
+        <span class="origin-tag" id="map-tag">West Bengal · Alluvial Silt Deposit</span>
+        <p class="desc" id="map-desc">
+          Enriched by seasonal river deposits, Bengal rhizomes yield intense golden pigment with deep earthiness, while Nadia seeds deliver sweet citrus linalool notes essential for traditional regional curries.
+        </p>
+        <div class="map-stats">
+          <div class="stat-box">
+            <span class="num" id="stat-curcumin">5.2%</span>
+            <span class="lbl" id="stat-lbl-1">Curcumin/Oil Content</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="stat-altitude">15m</span>
+            <span class="lbl">Elevation</span>
+          </div>
+          <div class="stat-box">
+            <span class="num" id="stat-method">Sun-Cured</span>
+            <span class="lbl">Curing Process</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. HARVEST TO HOME TIMELINE ============ -->
+<section id="processing" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Flavor Preservation</span>
+      <h2>Harvest to Home Timeline</h2>
+      <p>How traditional cold-grinding &amp; stone-pounding retain essential oils lost in high-heat commercial mills.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-step">
+        <span class="step-num">01. FARM HARVEST</span>
+        <h4>Ethical Lifting</h4>
+        <p>Harvested at peak maturity by heritage farming partners when leaves yellow naturally.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="step-num">02. SUN-CURING</span>
+        <h4>Natural Drying</h4>
+        <p>Slow sun-drying on woven bamboo mats for 12–14 days to naturally reduce moisture below 9%.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="step-num">03. COLD-GROUND</span>
+        <h4>Stone Pounding</h4>
+        <p>Milled under 35°C to protect volatile linalool and curcumin essential oils from heat degradation.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="step-num">04. LAB QUALITY</span>
+        <h4>Zero Additives</h4>
+        <p>Gas chromatography tested to ensure 100% purity and zero artificial chromate or dye fillers.</p>
+      </div>
+      <div class="timeline-step">
+        <span class="step-num">05. PANTRY SEAL</span>
+        <h4>Aroma-Lock Pack</h4>
+        <p>Sealed in light-proof oxygen-barrier foil to deliver farm-fresh potency direct to your kitchen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. AYURVEDIC WELLNESS CONNECTION ============ -->
+<section id="ayurveda">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Ancient Wisdom</span>
+      <h2>Ayurvedic Health &amp; Wellness</h2>
+      <p>Explore the therapeutic dosha balancing properties and active bio-compounds of single-origin spices.</p>
+    </div>
+
+    <div class="ayurveda-tabs">
+      <button class="tab-btn active" onclick="switchAyur('turmeric')">Turmeric (Haldi)</button>
+      <button class="tab-btn" onclick="switchAyur('coriander')">Coriander (Dhane)</button>
+      <button class="tab-btn" onclick="switchAyur('pepper')">Black Pepper (Golmorich)</button>
+    </div>
+
+    <div class="tab-content active" id="ayur-turmeric">
+      <div class="ayur-info">
+        <h3>Turmeric — Curcuma Longa (কাঁচা হলুদ)</h3>
+        <div class="ayur-dosha-badges">
+          <span class="dosha-tag">Pacifies Kapha &amp; Vata</span>
+          <span class="dosha-tag">Rasa: Tikta (Bitter) &amp; Katu (Pungent)</span>
+        </div>
+        <ul class="ayur-benefits-list">
+          <li><strong>Anti-Inflammatory Powerhouse:</strong> High active curcumin content supports joint ease and cellular immunity.</li>
+          <li><strong>Blood Purification (Varnya):</strong> Enhances skin radiance and natural detoxification pathways.</li>
+          <li><strong>Digestive Warmth:</strong> Stimulates agni (digestive fire) without overheating the digestive tract.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; border:1px solid var(--line);" alt="Turmeric powder">
+      </div>
+    </div>
+
+    <div class="tab-content" id="ayur-coriander">
+      <div class="ayur-info">
+        <h3>Coriander — Coriandrum Sativum (ধনে)</h3>
+        <div class="ayur-dosha-badges">
+          <span class="dosha-tag">Pacifies Pitta &amp; Tridoshic</span>
+          <span class="dosha-tag">Rasa: Madhura (Sweet) &amp; Kashaya (Astringent)</span>
+        </div>
+        <ul class="ayur-benefits-list">
+          <li><strong>Cooling &amp; Soothing:</strong> Calms excess internal heat and digestive acidity naturally.</li>
+          <li><strong>Renal &amp; Fluid Balance:</strong> Traditional coriander tea supports kidney health and mild detoxification.</li>
+          <li><strong>Linalool Aromatic Synergy:</strong> Enhances nutrient absorption when paired with turmeric and cumin.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1508748169069-82590c9f26e6?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; border:1px solid var(--line);" alt="Coriander seed">
+      </div>
+    </div>
+
+    <div class="tab-content" id="ayur-pepper">
+      <div class="ayur-info">
+        <h3>Black Pepper — Piper Nigrum (গোলমরিচ)</h3>
+        <div class="ayur-dosha-badges">
+          <span class="dosha-tag">Pacifies Kapha &amp; Vata</span>
+          <span class="dosha-tag">Rasa: Katu (Pungent)</span>
+        </div>
+        <ul class="ayur-benefits-list">
+          <li><strong>Bioavailability Catalyst:</strong> Piperine increases curcumin absorption in turmeric by up to 2000%.</li>
+          <li><strong>Respiratory Ease:</strong> Clears mucosal congestion during season transitions.</li>
+          <li><strong>Metabolic Fire:</strong> Enhances nutrient assimilation across body tissues (Dhatus).</li>
+        </ul>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1771541897176-44a3e01dc484?auto=format&fit=crop&w=600&q=80" style="width:100%; border-radius:10px; border:1px solid var(--line);" alt="Black pepper">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. FLAVOR PROFILE METERS ============ -->
+<section id="flavor-meters" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Sensory Analysis</span>
+      <h2>Flavor Profile Meters</h2>
+      <p>Visual sensory scaling of heat, earthiness, citrus sweetness, and pungency across single-origin batches.</p>
+    </div>
+
+    <div class="meters-grid">
+      <div class="meter-card">
+        <h3>
+          Turmeric (Halud)
+          <span style="font-size:12px; color:var(--marigold-gold);">Medinipur Origin</span>
+        </h3>
+        <div class="meter-row">
+          <div class="meter-label"><span>Earthiness</span><span>88%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 88%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Pungency</span><span>72%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 72%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Floral / Woody Notes</span><span>60%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 60%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Heat Index</span><span>25%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 25%;"></div></div>
+        </div>
+      </div>
+
+      <div class="meter-card">
+        <h3>
+          Coriander (Dhane)
+          <span style="font-size:12px; color:var(--cardamom-green);">Nadia Origin</span>
+        </h3>
+        <div class="meter-row">
+          <div class="meter-label"><span>Citrus Sweetness</span><span>90%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 90%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Herbal Warmth</span><span>78%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 78%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Nutty Aroma</span><span>82%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 82%;"></div></div>
+        </div>
+        <div class="meter-row">
+          <div class="meter-label"><span>Heat Index</span><span>10%</span></div>
+          <div class="meter-bar-bg"><div class="meter-bar-fill" style="width: 10%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WHAT'S IN YOUR PANTRY RECIPE FINDER ============ -->
+<section id="pantry-finder">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Culinary Pairing</span>
+      <h2>"What's in Your Pantry?" Recipe Finder</h2>
+      <p>Select the spices you currently have to discover authentic traditional recipes you can make today.</p>
+    </div>
+
+    <div class="pantry-container">
+      <div class="pantry-selector">
+        <div class="pantry-chip selected" onclick="togglePantry(this, 'turmeric')">✓ Turmeric (Halud)</div>
+        <div class="pantry-chip selected" onclick="togglePantry(this, 'coriander')">✓ Coriander (Dhane)</div>
+        <div class="pantry-chip" onclick="togglePantry(this, 'mustard')">Mustard Seeds (Shorshe)</div>
+        <div class="pantry-chip" onclick="togglePantry(this, 'cumin')">Cumin (Jeera)</div>
+        <div class="pantry-chip" onclick="togglePantry(this, 'chili')">Chili Powder</div>
+      </div>
+
+      <div class="recipe-grid" id="recipe-display-grid">
+        <div class="recipe-card" data-spices="turmeric,coriander,mustard">
+          <img src="https://images.unsplash.com/photo-1775433205046-86e060feff06?auto=format&fit=crop&w=600&q=80" alt="Shorshe Ilish">
+          <div class="recipe-card-body">
+            <h4>Shorshe Maacher Jhol</h4>
+            <p>Traditional Bengali fish curry simmered in fresh ground mustard, golden turmeric, and Nadia coriander paste.</p>
+            <div class="recipe-tags">
+              <span class="recipe-tag">Bengali Classic</span>
+              <span class="recipe-tag">25 mins</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card" data-spices="turmeric,coriander,cumin">
+          <img src="https://images.unsplash.com/photo-1615485500834-bc10199bc727?auto=format&fit=crop&w=600&q=80" alt="Panch Phoron Dal">
+          <div class="recipe-card-body">
+            <h4>Panch Phoron Red Lentil Dal</h4>
+            <p>Comforting red lentil stew tempered with Bengali five-spice, aromatic turmeric, and slow-roasted coriander.</p>
+            <div class="recipe-tags">
+              <span class="recipe-tag">Comfort Food</span>
+              <span class="recipe-tag">20 mins</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="recipe-card" data-spices="turmeric">
+          <img src="https://images.unsplash.com/photo-1768729341078-9da4e0ea959e?auto=format&fit=crop&w=600&q=80" alt="Golden Milk Haldi Latte">
+          <div class="recipe-card-body">
+            <h4>Golden Milk Ayurvedic Latte</h4>
+            <p>Warming bio-active tonic crafted with single-origin cold-ground turmeric, black pepper, and honey.</p>
+            <div class="recipe-tags">
+              <span class="recipe-tag">Wellness Drink</span>
+              <span class="recipe-tag">10 mins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. VIRTUAL MASALA DABBA BUNDLE BUILDER ============ -->
+<section id="masala-dabba" class="alt">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Custom Starter Kit</span>
+      <h2>Virtual Masala Dabba Builder</h2>
+      <p>Build your personalized 7-compartment brass spice box with fresh single-origin spices.</p>
+    </div>
+
+    <div class="dabba-builder">
+      <div class="brass-dabba-visual">
+        <div class="dabba-slot filled" id="slot-0">Medinipur Halud</div>
+        <div class="dabba-slot filled" id="slot-1">Nadia Dhane</div>
+        <div class="dabba-slot filled" id="slot-2">Lakadong Haldi</div>
+        <div class="dabba-slot filled" id="slot-3">Tellicherry Pepper</div>
+        <div class="dabba-slot filled" id="slot-4">Byadgi Chili</div>
+        <div class="dabba-slot" id="slot-5">+ Select</div>
+        <div class="dabba-slot" id="slot-6">+ Select</div>
+      </div>
+
+      <div>
+        <h3 style="color:var(--marigold); font-size:24px; margin-bottom:12px;">Build Your Custom 7-Spice Kit</h3>
+        <p style="color:var(--text-secondary); font-size:14px; margin-bottom:20px;">Select up to 7 heritage spices to fill your heavy brass Masala Dabba container.</p>
+
+        <div class="dabba-options-list">
+          <div class="dabba-option-item selected" onclick="toggleDabbaItem(this, 'Medinipur Halud')">
+            <span>Medinipur Turmeric</span>
+            <span>✓</span>
+          </div>
+          <div class="dabba-option-item selected" onclick="toggleDabbaItem(this, 'Nadia Dhane')">
+            <span>Nadia Coriander</span>
+            <span>✓</span>
+          </div>
+          <div class="dabba-option-item selected" onclick="toggleDabbaItem(this, 'Lakadong Haldi')">
+            <span>Lakadong Turmeric</span>
+            <span>✓</span>
+          </div>
+          <div class="dabba-option-item selected" onclick="toggleDabbaItem(this, 'Tellicherry Pepper')">
+            <span>Tellicherry Pepper</span>
+            <span>✓</span>
+          </div>
+          <div class="dabba-option-item selected" onclick="toggleDabbaItem(this, 'Byadgi Chili')">
+            <span>Byadgi Chili</span>
+            <span>✓</span>
+          </div>
+          <div class="dabba-option-item" onclick="toggleDabbaItem(this, 'Unjha Cumin')">
+            <span>Unjha Cumin</span>
+            <span>+</span>
+          </div>
+          <div class="dabba-option-item" onclick="toggleDabbaItem(this, 'Shorshe Mustard')">
+            <span>Bengal Mustard</span>
+            <span>+</span>
+          </div>
+        </div>
+
+        <button class="btn-dabba-action" onclick="alert('Your custom 7-Spice Brass Masala Dabba has been created!')">
+          Order Custom Brass Dabba Kit (5 Selected)
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="col">
+        <h3>Bengal Spice Ledger</h3>
+        <p style="margin-top: 16px; max-width: 40ch;">Single-origin, cold-ground Indian heritage spices traced direct from smallholder farms to your kitchen.</p>
+      </div>
+      <div class="col">
+        <h5>Explore Features</h5>
+        <ul>
+          <li><a href="#spice-route">Spice Route GI Map</a></li>
+          <li><a href="#processing">Cold-Ground Process</a></li>
+          <li><a href="#ayurveda">Ayurvedic Wellness</a></li>
+          <li><a href="#flavor-meters">Sensory Profile Meters</a></li>
+          <li><a href="#masala-dabba">Virtual Masala Dabba Builder</a></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h5>Geographical Indications</h5>
+        <p>Featuring Lakadong (Meghalaya), Byadgi (Karnataka), Tellicherry (Kerala), and Medinipur &amp; Nadia (West Bengal).</p>
+      </div>
+    </div>
+    <div class="credits-line">
+      <span>Commercion Exim Pvt Ltd — Heritage Spice Division</span>
+      <span>Kolkata, West Bengal, India</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Interactive Spice Route Data
+  const regionData = {
+    wb: {
+      title: "Paschim Medinipur & Nadia",
+      tag: "West Bengal · Alluvial Gangetic Silt",
+      desc: "Enriched by seasonal river deposits, Bengal rhizomes yield intense golden pigment with deep earthiness, while Nadia seeds deliver sweet citrus linalool notes essential for traditional regional curries.",
+      curcumin: "5.2%",
+      altitude: "15m",
+      method: "Sun-Cured"
+    },
+    meghalaya: {
+      title: "Lakadong, Jaintia Hills",
+      tag: "Meghalaya · High-Altitude Organic Rainforest",
+      desc: "Widely regarded as the world's most potent turmeric, Lakadong rhizomes grow in pristine high-altitude tribal soil, yielding extraordinary curcumin levels up to 7.5%–9.0%.",
+      curcumin: "7.5%+",
+      altitude: "610m",
+      method: "Cold-Ground"
+    },
+    karnataka: {
+      title: "Byadgi, Haveri",
+      tag: "Karnataka · Deep Red Soil",
+      desc: "Famous worldwide for its deep crimson oleoresin color without intense biting heat. Cold-ground Byadgi chili imparts rich color and mild fruity warmth to curries.",
+      curcumin: "Color: 150 ASTA",
+      altitude: "560m",
+      method: "Sun-Dried"
+    },
+    kerala: {
+      title: "Tellicherry, Malabar Coast",
+      tag: "Kerala · Tropical Western Ghats Slopes",
+      desc: "The pinnacle of black pepper — extra-large TGSEB (Tellicherry Garbled Special Extra Bold) berries left on the vine longer to develop deep complex pinene and piperine notes.",
+      curcumin: "Piperine: 4.8%",
+      altitude: "900m",
+      method: "Vine-Ripened"
+    }
+  };
+
+  function showRegion(key) {
+    const data = regionData[key];
+    if (!data) return;
+    document.getElementById('map-title').innerText = data.title;
+    document.getElementById('map-tag').innerText = data.tag;
+    document.getElementById('map-desc').innerText = data.desc;
+    document.getElementById('stat-curcumin').innerText = data.curcumin;
+    document.getElementById('stat-altitude').innerText = data.altitude;
+    document.getElementById('stat-method').innerText = data.method;
+
+    const cards = document.querySelectorAll('.region-card');
+    cards.forEach(c => c.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  // Ayurvedic Tabs
+  function switchAyur(id) {
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(c => c.classList.remove('active'));
+    document.getElementById('ayur-' + id).classList.add('active');
+
+    const btns = document.querySelectorAll('.tab-btn');
+    btns.forEach(b => b.classList.remove('active'));
+    event.currentTarget.classList.add('active');
+  }
+
+  // Pantry Recipe Filter
+  function togglePantry(chip, spice) {
+    chip.classList.toggle('selected');
+    if (chip.classList.contains('selected')) {
+      chip.innerText = '✓ ' + chip.innerText.replace('✓ ', '');
+    } else {
+      chip.innerText = chip.innerText.replace('✓ ', '');
+    }
+  }
+
+  // Masala Dabba Builder
+  let dabbaItems = ['Medinipur Halud', 'Nadia Dhane', 'Lakadong Haldi', 'Tellicherry Pepper', 'Byadgi Chili'];
+
+  function toggleDabbaItem(el, name) {
+    const idx = dabbaItems.indexOf(name);
+    if (idx > -1) {
+      dabbaItems.splice(idx, 1);
+      el.classList.remove('selected');
+      el.querySelector('span:last-child').innerText = '+';
+    } else {
+      if (dabbaItems.length >= 7) {
+        alert('Your Masala Dabba has 7 slots full!');
+        return;
+      }
+      dabbaItems.push(name);
+      el.classList.add('selected');
+      el.querySelector('span:last-child').innerText = '✓';
+    }
+    updateDabbaVisual();
+  }
+
+  function updateDabbaVisual() {
+    for (let i = 0; i < 7; i++) {
+      const slot = document.getElementById('slot-' + i);
+      if (dabbaItems[i]) {
+        slot.innerText = dabbaItems[i];
+        slot.classList.add('filled');
+      } else {
+        slot.innerText = '+ Select';
+        slot.classList.remove('filled');
+      }
+    }
+    document.querySelector('.btn-dabba-action').innerText = `Order Custom Brass Dabba Kit (${dabbaItems.length} Selected)`;
+  }
+</script>
+
+</body>
+</html>

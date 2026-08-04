@@ -13,6 +13,7 @@ export const PRODUCT_CATEGORIES = [
       desc: "भारतीय नमकीन स्नैक्स की प्रीमियम रेंज, जो स्वस्थ स्वाद की नई परिभाषा है। हमारे उत्पाद उच्च गुणवत्ता वाली प्राकृतिक सामग्री, ट्रांस-फैट-मुक्त तेलों और पारंपरिक विधियों से तैयार किए जाते हैं। प्रमाणित इकाइयों में कड़े स्वच्छता मानकों के साथ निर्मित हमारी नमकीन अपनी निरंतर गुणवत्ता, प्रामाणिक स्वाद और स्वास्थ्य-अनुकूल संरचना के लिए विश्व भर के आयातकों की पसंद है।",
     },
     img: "/product_one.jpeg",
+    imgContain: true,
   },
   {
     id: "chemicals",
@@ -36,11 +37,21 @@ export const PRODUCT_CATEGORIES = [
     img: "https://images.pexels.com/photos/18631424/pexels-photo-18631424.jpeg",
   },
   {
-    id: "indian_handicrafts",
-    key: "handicrafts",
-    en: { title: "Indian Handicrafts", sub: "Wooden · Marble · Decorative" },
-    hi: { title: "भारतीय हस्तशिल्प", sub: "लकड़ी · संगमरमर · सजावटी" },
-    img: "https://images.unsplash.com/photo-1765446568880-23ef9d4f6b12",
+    id: "turmeric_coriander",
+    key: "spices",
+    en: {
+      title: "Turmeric & Coriander",
+      sub: "Pure Ground Spices · Premium Export Quality",
+      desc: "Sourced directly from India's premier spice growing belts under strict quality standards. Processed carefully to retain natural aroma, vibrant color, and rich nutritional value for international markets.",
+      link: "/turmeric-coriander.html"
+    },
+    hi: {
+      title: "हल्दी और धनिया",
+      sub: "शुद्ध पिसे मसाले · प्रीमियम निर्यात गुणवत्ता",
+      desc: "कड़े गुणवत्ता मानकों के तहत भारत के प्रमुख मसाला उत्पादक क्षेत्रों से सीधे प्राप्त। अंतरराष्ट्रीय बाजारों के लिए प्राकृतिक सुगंध, जीवंत रंग और समृद्ध पोषण मूल्य बनाए रखने के लिए सावधानीपूर्वक संसाधित।",
+      link: "/turmeric-coriander.html"
+    },
+    img: "/indian-spices.jpeg",
   },
   {
     id: "ayurvedic",
