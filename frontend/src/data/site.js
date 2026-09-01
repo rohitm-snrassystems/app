@@ -100,9 +100,9 @@ export const COMPANY = {
   name: "Commercion Exim Pvt Ltd",
   short: "Commercion Exim",
   email: "info@commercionexim.com",
-  phone: "+91 98801 0xxxx",
-  whatsapp: "91988010xxxx",
-  iec: "IEC: WBxxxxxxxx",
+  phone: "+91 90735 10313",
+  whatsapp: "919073510313",
+  iec: "IEC: AAOCC0572A",
   gst: "GST: WBxxxxxxxx",
   address: {
     line1: "KOL120 – Plot No. 1, Lovelock Street",
