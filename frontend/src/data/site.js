@@ -105,8 +105,8 @@ export const COMPANY = {
   iec: "IEC: AAOCC0572A",
   gst: "GST: WBxxxxxxxx",
   address: {
-    line1: "INNOV8 WORKSPACES INDIA LTD.",
-    line2: "R/AA/41, Raghunathpur, Kolkata, West Bengal – 700059",
+    line1: "C/O 83, S P Mukherjee Road, 5th Floor,",
+    line2: "Kolkata West Bengal PIN: 700026",
   },
   social: {
     linkedin: "",

@@ -50,7 +50,7 @@ const Footer = () => {
           <ul className="mt-5 space-y-4 text-sm text-white/70">
             <li className="flex items-start gap-3">
               <MapPin size={16} className="mt-1 text-copper shrink-0" />
-              <span>{COMPANY.address.line1}, {COMPANY.address.line2}</span>
+              <span>{COMPANY.address.line1} {COMPANY.address.line2}</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={16} className="text-copper" />
